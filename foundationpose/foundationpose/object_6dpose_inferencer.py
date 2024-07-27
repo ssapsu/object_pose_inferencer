@@ -2,7 +2,7 @@ import argparse
 import os
 import sys
 
-sys.path.append("FoundationPose")
+sys.path.append("/FoundationPose")
 
 from estimater import *
 from datareader import *

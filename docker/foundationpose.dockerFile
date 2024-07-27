@@ -74,3 +74,6 @@ ENV SHELL=/bin/bash
 RUN ln -sf /bin/bash /bin/sh
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+
+# install FASTAPI
+RUN pip install FASTAPI uvicorn
