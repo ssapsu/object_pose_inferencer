@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.1.0-devel-ubuntu22.04
+FROM nvidia/cuda:12.0.0-devel-ubuntu22.04
 
 # Install ROS2 Humble
 
@@ -47,6 +47,9 @@ RUN cd / && wget https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.t
     cmake .. &&\
     make install
 
+# remove the eigen-3.4.0.tar.gz file
+RUN rm /eigen-3.4.0.tar.gz
+
 RUN apt install python3-pip python-is-python3 -y && pip install torchvision==0.16.0+cu121 torchaudio==2.1.0 torch==2.1.0+cu121 --index-url https://download.pytorch.org/whl/cu121 &&\
     pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable" &&\
     pip install scipy joblib scikit-learn ruamel.yaml trimesh pyyaml opencv-python imageio open3d transformations warp-lang einops kornia pyrender
@@ -76,4 +79,4 @@ RUN ln -sf /bin/bash /bin/sh
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 # install FASTAPI
-RUN pip install FASTAPI uvicorn
+RUN pip install fastapi uvicorn

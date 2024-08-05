@@ -43,7 +43,7 @@ class ObjectPoseEstimater(Node):
         self.ats.registerCallback(self.sync_callback)
 
         #set foundationpose args
-        self.mesh_file = '/home/hyeonsu/Documents/docker/moveit2_docker/FoundationPose/demo_data/mustard0/mesh/textured_simple.obj'
+        self.mesh_file = '/FoundationPose/demo_data/ycb/001_chips_can/poisson/textured.obj'
         self.mesh = trimesh.load(self.mesh_file)
         self.to_origin, self.extents = trimesh.bounds.oriented_bounds(self.mesh)
         self.bbox = np.stack([-self.extents/2, self.extents/2], axis=0).reshape(2,3)
