@@ -69,6 +69,8 @@ RUN pip install scikit-image meshcat webdataset omegaconf pypng roma seaborn ope
     wandb imgaug Ninja xlsxwriter timm albumentations xatlas rtree nodejs jupyterlab objaverse g4f ultralytics==8.0.120 pycocotools videoio numba &&\
     pip install h5py
 
+RUN pip install numpy==1.26.4
+
 WORKDIR /ros2_ws
 RUN mkdir -p /ros2_ws/src
 COPY ./foundationpose /ros2_ws/src
